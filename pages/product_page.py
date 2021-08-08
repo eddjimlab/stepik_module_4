@@ -3,7 +3,7 @@ from .locators import ProductPageLocators
 import pytest
 
 
-class PageObject(BasePage):
+class ProductPage(BasePage):
     def add_product_to_cart(self):
         cart_element = self.browser.find_element(*ProductPageLocators.ADD_BUTTON)
         cart_element.click()
