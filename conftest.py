@@ -8,7 +8,6 @@ def pytest_addoption(parser):
     parser.addoption('--language', action='store', default="en", help="Choose language")
 
 
-
 @pytest.fixture(scope="function")
 def browser(request):
     options = Options()
@@ -21,8 +20,6 @@ def browser(request):
         raise pytest.UsageError("--language should be valid locale as ru, en, fr...")
     yield browser
     browser.quit()
-
-
 
 
 
