@@ -3,7 +3,7 @@ from selenium.common.exceptions import NoSuchElementException, TimeoutException
 from selenium.common.exceptions import NoAlertPresentException
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from .locators import BasePageLocators
+from .locators import BasePageLocators, BasketPageLocators
 import time
 
 
@@ -13,9 +13,14 @@ class BasePage():
         self.url = url
         self.browser.implicitly_wait(timeout)
 
+
     def go_to_login_page(self):
         login_link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
         login_link.click()
+
+    def go_to_basket_page(self):
+        basket_link = self.browser.find_element(*BasePageLocators.CART_LINK)
+        basket_link.click()
 
     def is_disappeared(self, how, what, timeout=4):
         try:

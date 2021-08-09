@@ -9,6 +9,7 @@ class ProductPage(BasePage):
         cart_element.click()
         self.solve_quiz_and_get_code()
 
+
     def product_added_and_basket_equal(self):
         added_product = self.browser.find_element(*ProductPageLocators.PRODUCT_ADDED).text
         cart_product = self.browser.find_element(*ProductPageLocators.PRODUCT_CART).text
