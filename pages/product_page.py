@@ -1,6 +1,5 @@
 from .base_page import BasePage
 from .locators import ProductPageLocators
-import pytest
 
 
 class ProductPage(BasePage):
@@ -8,7 +7,6 @@ class ProductPage(BasePage):
         cart_element = self.browser.find_element(*ProductPageLocators.ADD_BUTTON)
         cart_element.click()
         self.solve_quiz_and_get_code()
-
 
     def product_added_and_basket_equal(self):
         added_product = self.browser.find_element(*ProductPageLocators.PRODUCT_ADDED).text
@@ -19,7 +17,6 @@ class ProductPage(BasePage):
         price_added = self.browser.find_element(*ProductPageLocators.PRICE_ADDED).text
         cart_price = self.browser.find_element(*ProductPageLocators.PRICE_CART).text
         assert price_added == cart_price, "Price in cart is not equal to added"
-
 
     def should_not_be_success_message(self):
         assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), "Success message after adding " \

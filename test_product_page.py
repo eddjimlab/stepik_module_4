@@ -1,19 +1,13 @@
 import time
 
 import pytest
-from .pages.product_page import ProductPage
+
 from .pages.basket_page import BasketPage
-from .pages.login_page import LoginPage
 from .pages.locators import ProductPageLocators
+from .pages.login_page import LoginPage
+from .pages.product_page import ProductPage
 
 
-# base_link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer"
-
-
-# @pytest.mark.parametrize('link', [f'{base_link}0', f'{base_link}1', f'{base_link}2', f'{base_link}3', f'{base_link}4',
-#                                   f'{base_link}5', f'{base_link}6',
-#                                   pytest.param(f'{base_link}7', marks=pytest.mark.xfail(reason="bad link")),
-#                                   f'{base_link}8', f'{base_link}9'])
 @pytest.mark.need_review
 def test_guest_can_add_product_to_basket(browser):
     product_page = ProductPage(browser, ProductPageLocators.LINK_MAIN)

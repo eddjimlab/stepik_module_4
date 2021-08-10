@@ -1,10 +1,11 @@
 import math
-from selenium.common.exceptions import NoSuchElementException, TimeoutException
+
 from selenium.common.exceptions import NoAlertPresentException
-from selenium.webdriver.support.wait import WebDriverWait
+from selenium.common.exceptions import NoSuchElementException, TimeoutException
 from selenium.webdriver.support import expected_conditions as EC
-from .locators import BasePageLocators, BasketPageLocators
-import time
+from selenium.webdriver.support.wait import WebDriverWait
+
+from .locators import BasePageLocators
 
 
 class BasePage():
@@ -67,7 +68,6 @@ class BasePage():
             alert = self.browser.switch_to.alert
             alert_text = alert.text
             print(f"Your code: {alert_text}")
-            # time.sleep(1)
             alert.accept()
         except NoAlertPresentException:
             print("No second alert presented")
